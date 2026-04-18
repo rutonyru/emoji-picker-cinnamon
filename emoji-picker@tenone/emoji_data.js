@@ -1,0 +1,22 @@
+var EMOJIS = [
+    { emoji: "😀", name: "grinning face", keywords: ["smile", "happy", "face"] },
+    { emoji: "😁", name: "beaming face", keywords: ["smile", "happy", "grin"] },
+    { emoji: "😂", name: "face with tears of joy", keywords: ["laugh", "joy", "funny"] },
+    { emoji: "😊", name: "smiling face with smiling eyes", keywords: ["smile", "happy", "blush"] },
+    { emoji: "😉", name: "winking face", keywords: ["wink", "face"] },
+    { emoji: "😍", name: "smiling face with heart-eyes", keywords: ["love", "heart", "eyes"] },
+    { emoji: "😎", name: "smiling face with sunglasses", keywords: ["cool", "sun", "glasses"] },
+    { emoji: "🤔", name: "thinking face", keywords: ["think", "hmm", "face"] },
+    { emoji: "👍", name: "thumbs up", keywords: ["ok", "yes", "like"] },
+    { emoji: "👎", name: "thumbs down", keywords: ["no", "dislike"] },
+    { emoji: "👏", name: "clapping hands", keywords: ["applause", "bravo"] },
+    { emoji: "🙏", name: "folded hands", keywords: ["thanks", "please", "pray"] },
+    { emoji: "❤️", name: "red heart", keywords: ["love", "heart"] },
+    { emoji: "🔥", name: "fire", keywords: ["hot", "lit"] },
+    { emoji: "✅", name: "check mark button", keywords: ["done", "ok", "check"] },
+    { emoji: "❌", name: "cross mark", keywords: ["error", "no", "stop"] },
+    { emoji: "🎉", name: "party popper", keywords: ["party", "celebration"] },
+    { emoji: "🚀", name: "rocket", keywords: ["launch", "ship"] },
+    { emoji: "💡", name: "light bulb", keywords: ["idea", "bulb"] },
+    { emoji: "📌", name: "pushpin", keywords: ["pin", "mark"] }
+];

@@ -1,0 +1,8 @@
+{
+  "uuid": "emoji-picker@tenone",
+  "name": "Emoji Picker",
+  "description": "Quick emoji picker for Cinnamon with keyboard shortcut",
+  "version": 1,
+  "url": "https://github.com/rutonyru/emoji-picker-cinnamon",
+  "cinnamon-version": ["6.6"]
+}
