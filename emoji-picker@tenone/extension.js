@@ -1,20 +1,43 @@
 const Main = imports.ui.main;
 const St = imports.gi.St;
 const Clutter = imports.gi.Clutter;
+const GLib = imports.gi.GLib;
 
 let popup = null;
 let overlay = null;
 let hotkeyName = "emoji-picker-toggle";
 let modalGrabbed = false;
-const EMOJIS = [
-    { emoji: "🙂", name: "smile happy" },
-    { emoji: "😂", name: "laugh joy funny" },
-    { emoji: "❤️", name: "heart love" },
-    { emoji: "🚀", name: "rocket launch" },
-    { emoji: "🔥", name: "fire hot" }
-];
 
-function init() {
+let extensionPath = null;
+let EmojiData = null;
+let EMOJIS = [];
+
+
+function init(metadata) {
+    try {
+        extensionPath = metadata.path;
+
+        if (!imports.searchPath.includes(extensionPath)) {
+            imports.searchPath.unshift(extensionPath);
+        }
+
+        EmojiData = imports.emoji_data;
+        EMOJIS = EmojiData.EMOJIS || [];
+
+        global.log(`Emoji Picker loaded ${EMOJIS.length} emojis`);
+    } catch (e) {
+        global.logError(e);
+    }
+}
+
+function autoPaste() {
+    try {
+        GLib.spawn_command_line_async(
+            "xdotool key --clearmodifiers ctrl+v"
+        );
+    } catch (e) {
+        global.logError(e);
+    }
 }
 
 function copyToClipboard(text) {
@@ -83,6 +106,12 @@ function createEmojiButton(emoji, labelText) {
         global.log(`Emoji button clicked: ${emoji}`);
         copyToClipboard(emoji);
         Main.notify("Emoji Picker", `Copié : ${emoji}`);
+        try {
+           autoPaste();
+        } catch (e) {
+            // silent fallback 
+            global.log(`Fail to paste: ${emoji}`);
+        }
         closePopup();
     });
 
